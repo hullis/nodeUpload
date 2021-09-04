@@ -11,7 +11,7 @@ let gitEntity = git("F:/www/my/tuchuang/vuepress")
 // 定时器
 setInterval(function() {
 	upDataFile()
-}, 3000) //时间不易太短
+}, 60000) // 一分钟检查一次，本地是否有修改
 
 // 修改 README 文件
 upDataFile()
