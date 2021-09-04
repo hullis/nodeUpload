@@ -28,6 +28,7 @@ function gitCommit(time) {
 		gitEntity
 		.add('./*')
 		.commit('更新图片' + time)
+		.pull('remote', 'branch')
 		.push(['-u', 'origin', 'master'], (e) => {
 			console.log('commit 成功，时间：' + time, e)
 		})
