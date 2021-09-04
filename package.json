@@ -1,0 +1,21 @@
+{
+  "name": "markdownfile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "chokidar": "^3.4.2",
+    "cross-env": "^7.0.2",
+    "log4js": "^6.3.0",
+    "node-notifier": "^7.0.2",
+    "node-windows": "^1.0.0-beta.5",
+    "pm2": "^4.4.1",
+    "simple-git": "^2.17.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "author": "huhao",
+  "license": "ISC"
+}
