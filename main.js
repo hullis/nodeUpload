@@ -33,7 +33,7 @@ function gitCommit(time) {
     if(not_added && created && deleted && modified && renamed)return false;
 		gitEntity
 		.add('./*')
-		.commit('更新图片' + time)
+		.commit('更新' + time)
 		.push(['-u', 'origin', 'master'], (e) => {
 			console.log('commit 成功，时间：' + time, e)
 		})
