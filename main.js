@@ -11,7 +11,7 @@ let gitEntity = git("F:/www/my/tuchuang")
 // 定时器
 setInterval(function() {
 	upDataFile()
-}, 300000) // 30s检查一次，本地是否有修改
+}, 1200000) // 20分钟检查一次，本地是否有修改
 
 // 提交
 upDataFile()
