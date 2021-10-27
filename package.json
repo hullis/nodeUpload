@@ -1,9 +1,16 @@
 {
-  "name": "markdownfile",
+  "name": "upload",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node ./build",
+    "dev": "node main.js"
+  },
   "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "path": "^0.12.7",
     "chokidar": "^3.4.2",
     "cross-env": "^7.0.2",
     "log4js": "^6.3.0",
@@ -13,9 +20,6 @@
     "simple-git": "^2.17.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "dev": "node app.js"
-  },
-  "author": "huhao",
-  "license": "ISC"
+  "description": "使用node做服务端，实现的文件上传功能",
+  "main": "http.js"
 }

@@ -6,7 +6,7 @@ const git = require('simple-git')
 /**
  * 初始化git
  */
-let gitEntity = git("F:/www/my/tuchuang")
+let gitEntity = git("D:/www/nodeUpload")
 
 // 定时器
 setInterval(function() {
