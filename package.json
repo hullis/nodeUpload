@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./build",
-    "dev": "node main.js"
+    
   },
   "dependencies": {
     "express": "^4.14.0",
