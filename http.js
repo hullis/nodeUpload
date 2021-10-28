@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs')
 const git = require('simple-git')
-
+const schedule = require('node-schedule');
 
 var express = require('express'),
     path = require('path'),
@@ -46,7 +46,7 @@ var upload = multer({
 /**
  * 初始化git
  */
-let gitEntity = git("D:/www/nodeUpload")
+let gitEntity = git("D:/www/node")
 
 function upDataFile() {
     const time = Date()
@@ -69,6 +69,36 @@ function gitCommit(time) {
                 console.log('commit 成功，时间：' + time)
             })
     })
+}
+
+// 取消定时器
+function scheduleCancel(){
+    var counter = 1;
+    const j = schedule.scheduleJob('* * * * * *', function(){
+        console.log('定时器触发次数：' + counter);
+        counter++;
+    });
+    setTimeout(function() {
+        console.log('定时器取消')
+      // 定时器取消
+        j.cancel();
+    }, 5000);
+}
+
+// *  *  *  *  *  *
+// │  │  │ │  │  |
+// │  │  │ │  │  └ day of week (0 - 7) (0 or 7 is Sun)
+// │  │  │ │  └───── month (1 - 12)
+// │  │  │ └────────── day of month (1 - 31)
+// │  │  └─────────────── hour (0 - 23)
+// │  └──────────────────── minute (0 - 59)
+// └───────────────────────── second (0 - 59, OPTIONAL)
+function scheduleObjectLiteralSyntax(){
+    //每分钟的第30秒定时执行一次:
+    schedule.scheduleJob('0 30 10 * * *',()=>{
+        console.log('scheduleCronstyle:' + new Date());
+        upDataFile()
+    }); 
 }
 
 //单文件上传，多文件上传参考https://github.com/expressjs/multer
@@ -96,11 +126,12 @@ app.post('/upload', upload.single('file'), function (req, res) {
 app.listen(config.port, config.host, function () {
     console.log('Server start on ' + config.host + ':' + config.port);
 
-    // 定时器
-    setInterval(function () {
-        upDataFile()
-    }, 3000000) // 检查一次，本地是否有修改，避免过多commit信息
+    // // 定时器
+    // setInterval(function () {
+    //     upDataFile()
+    // }, 3000000) // 检查一次，本地是否有修改，避免过多commit信息
 
-    // 提交
-    upDataFile()
+    // // 提交
+    // upDataFile()
+    scheduleObjectLiteralSyntax()
 });
