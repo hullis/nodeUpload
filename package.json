@@ -2,11 +2,14 @@
   "name": "upload",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "commit": "git-cz"
+  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "chokidar": "^3.4.2",
     "cross-env": "^7.0.2",
+    "cz-conventional-changelog-zh": "0.0.2",
     "express": "^4.14.0",
     "log4js": "^6.3.0",
     "morgan": "^1.7.0",
@@ -17,6 +20,11 @@
     "path": "^0.12.7",
     "pm2": "^4.4.1",
     "simple-git": "^2.17.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-zh"
+    }
   },
   "devDependencies": {},
   "description": "使用node做服务端，实现的文件上传功能",

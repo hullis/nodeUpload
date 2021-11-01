@@ -64,7 +64,7 @@ function gitCommit(time) {
 
         gitEntity
             .add('./*')
-            .commit('更新' + time)
+            .commit('docs：文档更新')
             .push(['-u', 'origin', 'master'], (e) => {
                 console.log('commit 成功，时间：' + time)
             })
