@@ -46,7 +46,7 @@ var upload = multer({
 /**
  * 初始化git
  */
-let gitEntity = git("D:/www/node")
+let gitEntity = git("D:/www/temp/node")
 
 function upDataFile() {
     const time = Date()
@@ -95,7 +95,7 @@ function scheduleCancel(){
 // └───────────────────────── second (0 - 59, OPTIONAL)
 function scheduleObjectLiteralSyntax(){
     //每分钟的第30秒定时执行一次:
-    schedule.scheduleJob('0 30 10 * * *',()=>{
+    schedule.scheduleJob('10 * * * * *',()=>{
         console.log('scheduleCronstyle:' + new Date());
         upDataFile()
     }); 
